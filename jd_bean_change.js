@@ -669,7 +669,10 @@ async function showMsg() {
 			allMessageMonth += ReturnMessageMonth + `\n`;
 		}
 		if ($.isNode() && WP_APP_TOKEN_ONE) {
-			await notify.sendNotifybyWxPucher("京东月资产变动", `${ReturnMessageMonth}`, `${$.UserName}`);
+			// await notify.sendNotifybyWxPucher("京东月资产变动", `${ReturnMessageMonth}`, `${$.UserName}`);
+			await notify.sendNotify("京东月资产变动", `${ReturnMessageMonth}`, {
+				url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
+			}, 'By Jesson')
 		}
 
 	}
@@ -998,7 +1001,10 @@ async function showMsg() {
 		if(strAllNotify)
 			ReturnMessage=strAllNotify+`\n`+ReturnMessage;
 		
-		await notify.sendNotifybyWxPucher(strTitle, `${ReturnMessage}`, `${$.UserName}`,'\n\n本通知 By ccwav Mod',strsummary);
+		// await notify.sendNotifybyWxPucher(strTitle, `${ReturnMessage}`, `${$.UserName}`,'\n\n本通知 By ccwav Mod',strsummary);
+		await notify.sendNotify(strTitle, `${ReturnMessage}`, {
+			url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
+		}, 'By Jesson')
 	}
 
 	//$.msg($.name, '', ReturnMessage , {"open-url": "https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean"});
